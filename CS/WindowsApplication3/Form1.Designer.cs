@@ -1,5 +1,7 @@
-namespace WindowsApplication3 {
-    partial class Form1 {
+namespace WindowsApplication3
+{
+    partial class Form1
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -9,8 +11,10 @@ namespace WindowsApplication3 {
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if(disposing && (components != null)) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -22,10 +26,9 @@ namespace WindowsApplication3 {
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
-            this.customerInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet11 = new WindowsApplication3.DataSet1();
             this.myGridControl1 = new WindowsApplication3.MyGridControl();
             this.myGridView1 = new WindowsApplication3.MyGridView();
             this.colColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -38,32 +41,24 @@ namespace WindowsApplication3 {
             this.colColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.customerInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // customerInfoBindingSource
-            // 
-            this.customerInfoBindingSource.DataMember = "CustomerInfo";
-            this.customerInfoBindingSource.DataSource = this.dataSet11;
-            // 
-            // dataSet11
-            // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // myGridControl1
             // 
-            this.myGridControl1.DataSource = this.customerInfoBindingSource;
             this.myGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            // 
+            // 
+            // 
+            this.myGridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.myGridControl1.Location = new System.Drawing.Point(0, 0);
             this.myGridControl1.LookAndFeel.SkinName = "Blue";
             this.myGridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.myGridControl1.MainView = this.myGridView1;
+            this.myGridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.myGridControl1.Name = "myGridControl1";
-            this.myGridControl1.Size = new System.Drawing.Size(583, 444);
+            this.myGridControl1.Size = new System.Drawing.Size(437, 361);
             this.myGridControl1.TabIndex = 0;
             this.myGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.myGridView1});
@@ -96,7 +91,7 @@ namespace WindowsApplication3 {
             this.colColumn1.Name = "colColumn1";
             this.colColumn1.Visible = true;
             this.colColumn1.VisibleIndex = 0;
-            this.colColumn1.Width = 96;
+            this.colColumn1.Width = 104;
             // 
             // colColumn2
             // 
@@ -161,15 +156,14 @@ namespace WindowsApplication3 {
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 444);
+            this.ClientSize = new System.Drawing.Size(437, 361);
             this.Controls.Add(this.myGridControl1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.customerInfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -178,9 +172,6 @@ namespace WindowsApplication3 {
 
         #endregion
 
-
-        private System.Windows.Forms.BindingSource customerInfoBindingSource;
-        private DataSet1 dataSet11;
         private MyGridControl myGridControl1;
         private MyGridView myGridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colColumn1;
@@ -195,4 +186,3 @@ namespace WindowsApplication3 {
         private DevExpress.XtraGrid.Columns.GridColumn colColumn10;
     }
 }
-
