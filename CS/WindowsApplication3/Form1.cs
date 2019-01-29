@@ -1,74 +1,45 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraGrid.Registrator;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Base.ViewInfo;
-using DevExpress.XtraGrid;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using DevExpress.XtraGrid.Drawing;
 
 
-namespace WindowsApplication3 {
-    public partial class Form1: Form {
-        public Form1() {
+namespace WindowsApplication3
+{
+    public partial class Form1 : Form
+    {
+        BindingList<TestData> data;
+
+        public Form1()
+        {
             InitializeComponent();
-        }
-        public void InitData() {
-            for(int i = 0;i < 5;i++) {
-                dataSet11.Tables[0].Rows.Add(new object[] { i, i, i, i, i, i, i, i, i ,i});
-            }
+            data = new BindingList<TestData>();
+            myGridControl1.DataSource = data;
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
+        private void Form1_Load(object sender, EventArgs e)
+        {
             InitData();
+            myGridView1.CollapseAllGroups();
+        }
+
+        public void InitData()
+        {
+            for (int i = 0; i <= 4; i++)
+                data.Add(new TestData() { Column1 = i, Column2 = i, Column3 = i, Column4 = i, Column5 = i, Column6 = i, Column7 = i, Column8 = i, Column9 = i, Column10 = i });
         }
     }
 
-    public class MyGridControl: GridControl {
-        protected override BaseView CreateDefaultView() {
-            return CreateView("MyGridView");
-        }
-        protected override void RegisterAvailableViewsCore(InfoCollection collection) {
-            base.RegisterAvailableViewsCore(collection);
-            collection.Add(new MyGridViewInfoRegistrator());
-        }
-    }
-
-    public class MyGridView: GridView {
-        public MyGridView() : this(null) { }
-        public MyGridView(DevExpress.XtraGrid.GridControl grid) : base(grid) { }
-        protected override string ViewName { get { return "MyGridView"; } }
-    }
-
-    public class MyGridViewInfo: GridViewInfo {
-        public MyGridViewInfo(GridView gridView) : base(gridView) { }
-
-        protected override GroupPanelRow CalcGroupPanelRowDrawInfo(Rectangle bounds, bool showCaption, bool lineStyle) {
-            GroupPanelRow groupPanelRow = base.CalcGroupPanelRowDrawInfo(bounds, showCaption, lineStyle);
-            if(groupPanelRow.ColumnsInfo.Count > 1) {
-                int y = groupPanelRow.ColumnsInfo[0].Bounds.Y;
-                foreach(GridColumnInfoArgs args in groupPanelRow.ColumnsInfo) {
-                    args.Bounds = new Rectangle(args.Bounds.X, y, args.Bounds.Width, args.Bounds.Height);
-                }
-            }
-            return groupPanelRow;
-        }
-
-        protected override int CalcGroupPanelHeight() {
-            base.CalcGroupPanelHeight();
-            return GroupLineDY * 2 + ColumnRowHeight;
-        }
-    }
-
-    public class MyGridViewInfoRegistrator: GridInfoRegistrator {
-        public override string ViewName { get { return "MyGridView"; } }
-        public override BaseView CreateView(GridControl grid) { return new MyGridView(grid as GridControl); }
-        public override BaseViewInfo CreateViewInfo(BaseView view) { return new MyGridViewInfo(view as MyGridView); }
+    public class TestData
+    {
+        public int Column1 { get; set; }
+        public int Column10 { get; set; }
+        public int Column2 { get; set; }
+        public int Column3 { get; set; }
+        public int Column4 { get; set; }
+        public int Column5 { get; set; }
+        public int Column6 { get; set; }
+        public int Column7 { get; set; }
+        public int Column8 { get; set; }
+        public int Column9 { get; set; }
     }
 }
